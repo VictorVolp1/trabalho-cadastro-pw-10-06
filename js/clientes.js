@@ -6,10 +6,9 @@ $("#cancelar").hide();
 $("#salvar").click(function () {
     let nome = $("#nome").val().trim().toUpperCase();
     let email = $("#email").val().trim().toLowerCase();
-    let telefoneDigitado = $("#telefone").val().trim();
-    let telefone = telefoneDigitado.replace(/\D/g, '');
+    let telefone = $("#telefone").val().trim();
 
-    if (nome === "" || email === "" || telefoneDigitado === "") {
+    if (nome === "" || email === "" || telefone === "") {
         alert('Preencha todos os campos corretamente.');
         return;
     }
@@ -20,8 +19,8 @@ $("#salvar").click(function () {
         return;
     }
 
-    if (!/^\d+$/.test(telefoneDigitado)) {
-        alert('O telefone deve conter apenas números.');
+    if (!/^\d+$/.test(telefone)) {
+        alert('O telefone deve conter apenas números inteiros.');
         return;
     }
 
