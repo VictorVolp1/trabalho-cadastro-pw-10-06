@@ -4,12 +4,17 @@ let idcapturado = null;
 $("#cancelar").hide();
 
 $("#salvar").click(function () {
-    let nome = $("#nome").val().toUpperCase();
-    let salario = $("#salario").val().toLowerCase();
-    let cargo = $("#cargo").val().toLowerCase();
+    let nome = $("#nome").val().trim().toUpperCase();
+    let salario = $("#salario").val().trim().replace(',', '.');
+    let cargo = $("#cargo").val();
 
     if (nome === "" || salario === "" || cargo === "") {
-        alert('Preencha todos os campos');
+        alert('Preencha todos os campos corretamente.');
+        return;
+    }
+
+    if (!/^\d+(\.\d{1,2})?$/.test(salario)) {
+        alert('O salário deve ser um número decimal válido.');
         return;
     }
 
